@@ -11,7 +11,7 @@ namespace WebApiSoat.Core.Interface.Servicio
 {
     public interface ISoatServicio
     {
-        Task<bool> ValidarVigencia(string Placa);
+        Task<bool> ValidarVigencia(string Placa, DateTime FechaVencimineto);
         Task<VmSoatResponse> RealizaCompra(VmSoatRequest Soat);
         Task<InformacionSoatOData> SeleccionarInformacionSoatPorPlacaAsync(string Placa);
     }

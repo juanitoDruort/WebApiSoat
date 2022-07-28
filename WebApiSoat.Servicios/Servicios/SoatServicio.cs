@@ -72,12 +72,12 @@ namespace WebApiSoat.Servicios.Servicios
             return await _ISoatRepositorio.SeleccionarInformacionSoatPorAsync(Soat => Soat.Placa == Placa);
         }
 
-        public async Task<bool> ValidarVigencia(string Placa)
+        public async Task<bool> ValidarVigencia(string Placa, DateTime FechaVencimineto)
         {
             var ResConsulta = await _ISoatRepositorio.BuscarPorAsync(Soat =>
                        Soat.PlacaAutomotor.ToUpper() == Placa.ToUpper() &&
-                      DateTime.Now > Soat.FechaVenciminetoPolizaActual);
-            return ResConsulta != null ? true : false;
+                      FechaVencimineto > Soat.FechaVenciminetoPolizaActual);
+            return ResConsulta == null ? true : false;
         }
     }
 }

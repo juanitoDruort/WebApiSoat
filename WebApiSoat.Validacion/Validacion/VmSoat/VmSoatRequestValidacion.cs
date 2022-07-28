@@ -27,7 +27,7 @@ namespace WebApiSoat.Validacion.Validacion.VmSoat
 
             RuleFor(x => x.Placa).Must((model,Placa, cancellation) =>
             {
-                bool Validacion = Herramientas.RunSync(() =>  ISoatServicio.ValidarVigencia(Placa));
+                bool Validacion = Herramientas.RunSync(() =>  ISoatServicio.ValidarVigencia(Placa, model.FechaVenciminetoPolizaActual));
                 return Validacion;
             }).WithMessage("La fecha actual de compra esta sobre la fecha de vigencia del soat ");
 
