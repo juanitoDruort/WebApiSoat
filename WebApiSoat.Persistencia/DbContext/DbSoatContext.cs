@@ -15,12 +15,6 @@ namespace WebApiSoat.Persistencia
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=SMCLIENTEE12\\SQLEXPRESS;Initial Catalog=DbSoat;Integrated Security=SSPI");
-            base.OnConfiguring(optionsBuilder);
-        }
-
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Soat> Soat { get; set; }
         public DbSet<CiudadVenta> CiudadVenta { get; set; }
